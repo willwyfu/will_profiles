@@ -1,0 +1,23 @@
+#!/bin/sh
+PT=$PWD
+CSCOPE_FILE=cscope.file
+echo $PT
+find $PT \( -path "$PT/*" -and \( -name "*.[chsS]" -o -name "*.mk" -o -name "Kconfig" -o -name "Makefile" -o -name "*.java" -o -name "*.cpp" -o -name "*.lds" \) \) > cscope.file
+#find $PT \(-name "*"\) > $CSCOPE_FILE
+cscope -Rbkq -i cscope.file
+echo "finish"
+
+#$1=$PWD
+#CSCOPE_FILE=cscope.file
+#if [ -n "$1" ]; then  
+#  echo "Source code directory: " $1
+#  echo "Create file map : " $CSCOPE_FILE
+#  find $1 \( -path "$1/*" -and \( -name "*.[chsS]" -o -name "*.mk" -o -name "Kconfig" -o -name "Makefile" \) \) > $CSCOPE_FILE
+#  find $1 \( -path "$1/*" -and \( -name "*" \) \) > $CSCOPE_FILE
+#  cscope -Rbkq -i $CSCOPE_FILE
+#  echo "finish"
+  # cscope -Rbkq   
+#else 
+#  echo "Please key-in path of project"
+#fi
+

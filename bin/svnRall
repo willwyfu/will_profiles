@@ -1,0 +1,1 @@
+svnR 'svn revert --recursive .'

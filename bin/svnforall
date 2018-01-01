@@ -1,0 +1,28 @@
+#set -e
+function recursive() {
+	cd $1
+	SVN=`ls -a | grep ".svn"`
+	if [ "$SVN" == ".svn" ]; then
+		echo "SVN in" `pwd`
+		$2
+		cd ..
+		return;
+	else
+		ISDIR=`ls -l | grep "^d"`
+		if [ "$ISDIR" == "" ]; then
+			cd ..
+			return
+		fi
+	    SAVEIFS=$IFS
+    	IFS=$(echo -en "\n\b")
+		for DIR_NAME in `ls -d */`
+		do
+		IFS=$SAVEIFS
+			recursive $DIR_NAME "$2"
+		done
+		cd ..
+	fi
+}
+echo "$@"
+recursive . "$@"
+

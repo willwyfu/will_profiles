@@ -1,0 +1,7 @@
+pathpat="^.*:[0-9]+" 
+ccred=$(echo -e "\033[1;31m")
+ccyellow=$(echo -e "\033[1;33m")
+ccend=$(echo -e "\033[0m")
+/usr/bin/make "$@" 2>&1 | sed -E -e "/[Ee]rror[: ]/ s%[Ee]rror[: ]%$ccred&$ccend%g" -e "/[Ww]arning[: ]/ s%[Ww]arning[: ]%$ccyellow&$ccend%g"
+#return ${PIPESTATUS[0]}
+

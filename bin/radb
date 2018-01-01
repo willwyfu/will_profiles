@@ -1,0 +1,2 @@
+adb disconnect 172.20.53.17
+adb connect 172.20.53.17
