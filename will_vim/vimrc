@@ -91,3 +91,8 @@ map <F5> :s/\s\+$//<CR>
 nmap <F8> :!find . \( -path "./*" -and \( -name "*.[chsS]" -o -name "*.mk" -o -name "Kconfig" -o -name "Makefile" -o -name "*.java" -o -name "*.cpp" -o -name "*.lds" \) \) > cscope.file<CR>
 	\:!cscope -Rbkq -i cscope.file<CR>
 	\:cs reset<CR>
+
+if filereadable("cscope.out")
+	cs add cscope.out
+	set cst
+endif
