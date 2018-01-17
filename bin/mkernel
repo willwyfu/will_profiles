@@ -1,9 +1,0 @@
-set -x
-ROOT=`pwd`
-cd $ROOT
-
-export CROSS_COMPILE=arm-linux-gnueabihf-
-export ARCH=arm
-make nt72668_androidl_defconfig
-make
-cp arch/arm/boot/uImage ~/Project/Android_CTK_5.0.1/Android/android/device/novatek/nt72668/BSP/kernel

@@ -1,1 +1,0 @@
-find . -name .svn -prune -o -name .repo -prune -o -name .git -prune -o -name "cscope.*" -prune -o -print0 | xargs -0 -n1 -P16 grep -s -iH  --color "$@"
